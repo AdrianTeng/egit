@@ -36,6 +36,7 @@ import org.eclipse.egit.ui.JobFamilies;
 import org.eclipse.egit.ui.UIPreferences;
 import org.eclipse.egit.ui.internal.UIText;
 import org.eclipse.egit.ui.internal.branch.CleanupUncomittedChangesDialog;
+import org.eclipse.egit.ui.internal.console.GitConsoleFactory;
 import org.eclipse.egit.ui.internal.credentials.EGitCredentialsProvider;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -173,6 +174,7 @@ public class PullOperationUI extends JobChangeAdapter {
 			Object result = entry.getValue();
 			if (result instanceof PullResult) {
 				PullResult pullResult = (PullResult) result;
+				GitConsoleFactory.getConsole().write(pullResult);
 				if (pullResult.getRebaseResult() != null
 						&& RebaseResult.Status.UNCOMMITTED_CHANGES == pullResult
 								.getRebaseResult().getStatus()) {
