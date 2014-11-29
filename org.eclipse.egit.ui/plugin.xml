@@ -5696,4 +5696,10 @@
         </bundle>
      </component>
   </extension>
+  <extension
+        point="org.eclipse.ui.console.consoleFactories">
+      <consoleFactory
+           label="%Git"
+           class="org.eclipse.egit.ui.internal.console.GitConsoleFactory"/>
+  </extension> 
 </plugin>
